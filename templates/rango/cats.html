@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <ul>
+    {% if categories %}
+        {% for c in categories %}
+            <li {% if current_category and current_category == c %}class="active"{% endif %}>
+                <a href="{% url 'rango:show_category' c.slug %}">{{ c.name }}</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li><strong>No categories present.</strong></li>
+    {% endif %}
+   </ul>
+
+</body>
+</html>
